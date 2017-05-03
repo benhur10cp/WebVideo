@@ -1,0 +1,15 @@
+current directory: /home/benhur/Documents/Tutorial/webvideo/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+/home/benhur/.rvm/rubies/ruby-2.3.1/bin/ruby -r ./siteconf20170502-4374-yxe1hk.rb extconf.rb
+creating Makefile
+
+current directory: /home/benhur/Documents/Tutorial/webvideo/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/benhur/Documents/Tutorial/webvideo/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/benhur/Documents/Tutorial/webvideo/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20170502-4374-h7dxaq

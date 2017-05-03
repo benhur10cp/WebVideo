@@ -1,0 +1,6 @@
+<h1><%= @video.name_clip %></h1>
+<p><%= video_tag(@video.videoclip_url.to_s, controls: true) %></p>
+<p><%= @video.description %>></p>
+<% if user_signed_in? %>
+  <p><%= link_to 'Deletar Video', video_path(@video), method: :delete, data:{confirm: "Tem certeza Que deseja apagar o video?"} %></p>
+<% end %>

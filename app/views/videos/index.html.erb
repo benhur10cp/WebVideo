@@ -1,0 +1,10 @@
+<p>Videos</p>
+<% if user_signed_in? %>
+  <%= link_to 'Enviar Video', new_video_path %>
+<% else %>
+  <%= link_to 'Entrar para enviar video', new_user_session_path %>
+<% end %>
+
+<% @videos.each do |video| %>
+  <%= link_to "#{video.name_clip}", video_path(video) %>
+<% end %>
