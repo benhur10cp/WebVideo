@@ -12,25 +12,31 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     if @video.save
+      flash[:notice] = "Video Enviado"
       redirect_to root_path
     else
+      flash[:notice] = "Não foi possivel enviar"
       render :new
     end
   end
 
   def destroy
     @video = Video.find(params[:id])
-    @video.destroy
+    if @video.user_id == current_user.id
+      @video.destroy
+    end
     redirect_to root_path
   end
 
   def show
     @video = Video.find(params[:id])
+    @comments = Comment.where(video_id: params[:id])
+    @comment = Comment.new
   end
 
   private
     def video_params
-      params.require(:video).permit(:name_clip, :videoclip, :description)
+      params.require(:video).permit(:name_clip, :videoclip, :description, :user_id)
     end
 
 end

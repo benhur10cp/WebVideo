@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 1.0'
 #Flexible authentication solution for Rails with Warden.
 gem 'devise'
+#The most popular front-end framework for developing responsive, mobile first projects on the web
+gem 'rails-assets-bootstrap', '4.0.0.alpha.6', source: 'https://rails-assets.org'
+#Font Awesome
+gem 'rails-assets-Font-Awesome', '4.7.0', source: 'https://rails-assets.org'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

@@ -1,5 +1,7 @@
 <p>Novo Video</p>
+
 <%= form_for @video do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.label :name_clip %>
   <%= f.text_field :name_clip %>
 
