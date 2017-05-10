@@ -1,16 +1,24 @@
-<p>Novo Video</p>
+<div class="container">
 
-<%= form_for @video do |f| %>
+  <%= form_for @video do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.label :name_clip %>
-  <%= f.text_field :name_clip %>
-
-  <%= f.label :videoclip %>
-  <%= f.file_field :videoclip %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.submit 'Enviar' %>
-
-<% end %>
+    <div class="row">
+      <%= f.label :name_clip %>
+      <%= f.text_field :name_clip %>
+    </div>
+    <br>
+    <div class="row">
+      <%= f.label :videoclip %>
+      <%= f.file_field :videoclip %>
+    </div>
+    <br>
+    <div class="row">
+      <%= f.label :description %>
+      <%= f.text_area :description, style: "resize: none;" %>
+    </div>
+    <br>
+    <div class="row">
+      <%= f.submit 'Enviar', class:"btn btn-success" %>
+    </div>
+  <% end %>
+</div>

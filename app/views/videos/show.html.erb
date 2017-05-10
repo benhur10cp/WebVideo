@@ -1,32 +1,40 @@
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-<% end %>
+<div class="container">
 
-<h1><%= @video.name_clip %></h1>
-<p><%= video_tag(@video.videoclip_url.to_s, controls: true) %></p>
-<p><%= @video.description %></p>
-<% if user_signed_in? %>
-  <% if @video.user_id == current_user.id %>
-    <p><%= link_to 'Deletar Video', video_path(@video), method: :delete, data:{confirm: "Tem certeza Que deseja apagar o video?"} %></p>
+  <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
   <% end %>
-<% end %>
-</br>
-</br>
-<h2>Comentários</h2>
-<% @comments.each do |comment| %>
-  <p> <%= comment.content %> </p>
-<% end %>
 
-<% if user_signed_in? %>
-  <%= form_for @comment do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :video_id, value: @video.id %>
-
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-
-    <%= f.submit 'Enviar' %>
+  <h1><%= @video.name_clip %></h1>
+  <p><%= video_tag(@video.videoclip_url.to_s, controls: true) %></p>
+  <p><%= @video.description %></p>
+  <% if user_signed_in? %>
+    <% if @video.user_id == current_user.id %>
+      <p><%= link_to 'Deletar Video', video_path(@video), method: :delete, data:{confirm: "Tem certeza Que deseja apagar o video?"} %></p>
+    <% end %>
   <% end %>
-<% else %>
-  <%= link_to 'Entrar para enviar comentário', new_user_session_path %>
-<% end %>
+  </br>
+  </br>
+  <h2>Comentários</h2>
+  <% @comments.each do |comment| %>
+    <div class="row">
+      <%= user_email comment.user_id %>
+      <br>
+      <%= comment.content %>
+    </div>
+    <br>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_for @comment do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :video_id, value: @video.id %>
+
+      Comentário
+      <%= f.text_area :content, style: "resize: none;"  %>
+      <%= f.submit 'Comentar', class:"btn btn-success" %>
+    <% end %>
+  <% else %>
+    <%= link_to 'Entrar para enviar comentário', new_user_session_path %>
+  <% end %>
+
+</div>
