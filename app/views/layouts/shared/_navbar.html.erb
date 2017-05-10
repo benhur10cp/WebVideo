@@ -1,0 +1,14 @@
+<nav class="navbar fixed-top navbar-inverse bg-primary bg-faded">
+  <div class="row">
+    <div class="col col-md-8">
+      <%= link_to 'Web Video', root_path, class:"navbar-brand" %>
+    </div>
+    <div class="col col-md-4">
+      <% if user_signed_in? %>
+          <%= link_to 'Sair', destroy_user_session_path, class:"btn btn-success my-2 my-sm-0 float-right" %>
+      <% else %>
+          <%= link_to 'Entrar', new_user_session_path, class:"btn btn-success my-2 my-sm-0 float-right" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
